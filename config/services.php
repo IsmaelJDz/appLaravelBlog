@@ -36,8 +36,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '226054857944390',
-        'client_secret' => '9059b50eb3c7c206b9d5ef1948d03769',
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => 'https://laratter.com/auth/facebook/callback',
     ],
 
