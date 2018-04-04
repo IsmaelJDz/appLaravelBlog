@@ -17,6 +17,7 @@ Route::get('/acerca', function() {
 });
 
 Auth::routes();
+Route::get('/messages', 'MessagesController@search');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::post('/messages/create', 'MessagesController@create');
