@@ -15,7 +15,7 @@
         </nav>
     </div>
     <div class="row">
-        <form action="/messages/create" method="POST">
+        <form action="/messages/create" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
         {{ csrf_field() }}
@@ -25,7 +25,7 @@
                 <div class="invalid-feedback">{{ $error }}</div>   
             @endforeach
         @endif
-    </div>
+        <input type="file" class="form-control-file" name="image">
         </form>
     </div>
     <div class="row">
