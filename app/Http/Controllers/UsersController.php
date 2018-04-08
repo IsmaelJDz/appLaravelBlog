@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Conversation; 
 use App\PrivateMessage; 
-use App\User; 
+use App\User;
+use App\Notifications\UserFollowed; 
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function show($username)
     {
-        throw new \Exception('Simulando un error.');
+        //throw new \Exception('Simulando un error.');
  		$user = $this->findByUsername($username);
 
  		return view('users.show', [
@@ -26,6 +27,8 @@ class UsersController extends Controller
     	$me = $request->user();
 
     	$me->follows()->attach($user);
+
+        $user->notify(new UserFollowed($me));
 
     	return redirect("/$username")->withSuccess('User Followed!');
     }

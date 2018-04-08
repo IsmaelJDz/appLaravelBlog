@@ -35,3 +35,5 @@ Route::get('/messages/{message}', 'MessagesController@show');
 Route::get('/{username}/follows', 'UsersController@follows');
 Route::get('/{username}/followers', 'UsersController@followers');
 Route::get('/{username}', 'UsersController@show');
+
+Route::get('/api/messages/{message}/responses', 'MessagesController@responses');

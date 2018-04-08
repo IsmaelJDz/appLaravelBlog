@@ -33,4 +33,9 @@ class Message extends Model
         return $this->toArray();
     }
 
+    public function responses()
+    {
+        return $this->hasMany(Response::class)->with('user')->latest();
+    }
+
 }
