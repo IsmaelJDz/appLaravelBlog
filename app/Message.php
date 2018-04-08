@@ -26,4 +26,11 @@ class Message extends Model
     	}
     }
 
+    public function toSearchableArray()
+    {
+        $this->load('user');
+
+        return $this->toArray();
+    }
+
 }
